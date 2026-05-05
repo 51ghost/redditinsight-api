@@ -49,7 +49,7 @@ async def subreddit_detail(name: str):
 
 @app.get("/v1/post/{post_id}")
 async def post_detail(post_id: str):
-    for p in POSTS:
+    for p in POSTS.values():
         if p["id"] == post_id: return p
     raise HTTPException(404, f"Post {post_id} not found")
 
